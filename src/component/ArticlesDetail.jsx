@@ -18,9 +18,13 @@ function ArticlesDetail() {
       });
   }, [id]);
   return (
-    <div>
-      <h1 className="text-amber-900 font-bold text-lg">{article.title}</h1>
-      <p className="text-gray-700">{article.body}</p>
+    <div className=" bg-gray-200 p-4 h-screen flex items-center justify-center">
+    <div className="flex flex-col bg-white p-4 mb-4 rounded shadow  w-[80%] mx-auto ">
+      <h1 className="text-amber-900 font-bold text-lg">
+        {article.title}
+        </h1>
+      <p className="text-gray-700 pt-5">{article.body}</p>
+    </div>
     </div>
   );
 }
