@@ -4,9 +4,9 @@ import ArticlesDetail from "../component/ArticlesDetail";
 function Layout() {
   return (
     <>
-      <Home />
-      {/* <Outlet />
-      <Footer /> */}
+  
+     <Outlet />
+  
     </>
   );
 }

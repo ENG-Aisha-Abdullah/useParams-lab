@@ -1,23 +1,28 @@
-import React from 'react'
+import axios from "axios";
+import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from 'react-router';
+import { useParams } from "react-router";
 
 function ArticlesDetail() {
-    const [article, setArticle] = useState("");
-    const { id } = useParams();
-    useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-            .then((response) => response.json())
-            .then((data) => setArticle(data));
-    }, [id]);
+  const [article, setArticle] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+    axios
+      .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+      .then((response) => {
+        setArticle(response.data);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [id]);
   return (
     <div>
-        <h1 className="text-2xl font-bold mb-4">{article.title}</h1>
-        <p className="text-gray-700">{article.body}</p>
-        
-
+      <h1 className="text-amber-900 font-bold text-lg">{article.title}</h1>
+      <p className="text-gray-700">{article.body}</p>
     </div>
-  )
+  );
 }
 
 export default ArticlesDetail;
